@@ -8,6 +8,8 @@
   </head>
   <body>
     <!-- select box -->
+    <input type="text" placeholder="Name" id="name" /> <br />
+    <input type="text" placeholder="Address" id="address" /> <br />
     <label for="educations">Choose your Education:</label>
     <select name="education" id="educations">
       <option value="Matric">Matric</option>
@@ -27,6 +29,16 @@
     <input type="radio" id="feMale" value="feMale" name="gender" />
     <label for="feMale">FeMale</label><br />
     <input type="submit" id="btn" />
+    <br />
+    <table border="1" id="table">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>education</th>
+        <th>Profession</th>
+        <th>Gender</th>
+      </tr>
+    </table>
     <script src="./script.js"></script>
   </body>
 </html>

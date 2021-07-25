@@ -51,6 +51,18 @@ let male = document.getElementById("male");
 let feMale = document.getElementById("feMale");
 let professionDOM = document.getElementById("professions");
 let educationDom = document.getElementById("educations");
+let nameInput = document.getElementById("name");
+let addressInput = document.getElementById("address");
+let table = document.getElementById("table");
+// Counstructor
+//  // //
+function Data(name, gender, address, education, profession) {
+  this.name = name;
+  this.gender = gender;
+  this.address = address;
+  this.education = education;
+  this.profession = profession;
+}
 
 btn.addEventListener("click", function () {
   // Selected gender
@@ -65,17 +77,25 @@ btn.addEventListener("click", function () {
 
   const education = educationDom.value;
   const profession = professionDOM.value;
+  const name = nameInput.value;
+  const address = addressInput.value;
 
-  //  // //
-  function Data(name, gender, address, education, profession) {
-    this.name = name;
-    this.gender = gender;
-    this.address = address;
-    this.education = education;
-    this.profession = profession;
-  }
+  let entry = new Data(name, selectedValue, address, education, profession);
 
-  console.log(
-    new Data("Ahmed", selectedValue, "Gulshan", education, profession)
-  );
+  showUi(entry);
 });
+
+function showUi(data) {
+  const ele = document.createElement("tr");
+  ele.innerHTML = ` 
+        <td>${data.name}</td>
+        <td>${data.gender}</td>
+        <td>${data.address}</td>
+        <td>${data.education}</td>
+        <td>${data.profession}</td>
+  `;
+
+  table.appendChild(ele);
+  nameInput.value = "";
+  addressInput.value = "";
+}
